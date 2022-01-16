@@ -34,7 +34,7 @@ function fetchdata(html) {
     let arr = []
     for (let i = 0; i < nameArr.length ; i++) {
         let nameELe = $(nameArr[i]).text()
-        let priceEle = $(priceArr[i]).text()
+        let priceEle = "₹"+$(priceArr[i]).text()
         let badgeEle = $(badgeArr[i]).text()
         let starsEle = $(starsArr[i]).text()
         let starsContriEle = $(starsContribution[i]).text()
@@ -60,11 +60,11 @@ function processData(nameELe,priceEle,badgeEle,starsEle,starsContriEle){
     let filePath= path.join(dirpath ,data+".xlsx");
     let content = excelReader(filePath,data);
     let dataObj = {
-        "Name " : nameELe,
-        "Price ": priceEle,
-        "Badge" : badgeEle,
-        "No. of stars": starsEle,
-        "Stars Contributors" : starsContriEle
+        "NAME " : nameELe,
+        "PRICE ": priceEle,
+        "BADGE" : badgeEle,
+        "NO. OF STARS": starsEle,
+        "STARS CONTRIBUTORS" : starsContriEle
     }
     content.push(dataObj)
     excelWriter(filePath,content,data);
